@@ -1,0 +1,10 @@
+[sshd]
+enabled = true
+port = ssh
+filter = sshd-custom
+logpath = /var/log/auth.log
+backend = polling
+maxretry = 3
+findtime = 600
+bantime = 900
+banaction = nftables

@@ -1,0 +1,317 @@
+/ {
+
+	chosen {
+         	bootargs = "uio_pdrv_genirq.of_id=dmem-uio root=/dev/mmcblk0p2 rw rootwait";
+     };
+
+	// generic-uio (for xlnx kernel)
+	// for ADI kernel (dmem-uio)
+
+     amba_pl: amba_pl {
+			
+			audio_interface_0: audio_interface@50000000 {
+					compatible = "dmem-uio";
+				  	status = "okay";
+			};
+
+			ethernet_bridge_black_side_fifos_black_to_ps_fifo: axi_output_fifo_ip@43c00000{
+					compatible = "dmem-uio";
+					status = "okay";
+			};
+
+		       ethernet_bridge_black_side_fifos_ps_to_black_fifo: axi_input_fifo_ip@43c10000 {
+			   		compatible = "dmem-uio";
+			   		status = "okay";
+			};
+
+		       ethernet_bridge_encrypted_ethernet_b_0: encrypted_ethernet_bridge_ip@43c20000 {
+					compatible = "dmem-uio";
+					status = "okay";
+			};
+
+			ethernet_bridge_tri_mode_ethernet_mac_black: tri_mode_ethernet_mac@43c30000 {
+					compatible = "dmem-uio";
+					interrupts = <0 35 1>;
+					status = "okay";
+			};
+
+			ethernet_bridge_tri_mode_ethernet_mac_red: tri_mode_ethernet_mac@43c40000 {
+					compatible = "dmem-uio";
+					interrupts = <0 34 1>;
+					status = "okay";
+			};
+			
+			pro_axi_spi_1: pro_axi_spi@48000000 {
+					compatible = "dmem-uio";
+				  	status = "okay";
+			};
+			
+			/*Clock_and_FH_0: Clock_and_FH@68000000 {
+					compatible = "dmem-uio";
+				  	status = "okay";
+			};*/
+			
+			FH_Algo_SPI_Slave_0: FH_Algo_SPI_Slave@58000000 {
+					compatible = "dmem-uio";
+				  	status = "okay";
+			};
+
+			trng_interface_0: trng_interface@60000000 {
+					compatible = "dmem-uio";
+					status = "okay";
+			};
+
+			uarts_int_gps_uart: serial@42c00000 {
+					interrupts = <0 30 1>;
+           				status = "okay";
+        		};
+
+			uarts_dbg_uart: serial@42c10000 {
+           				status = "okay";
+        		};
+
+			uarts_key_gun_uart: serial@42c20000{
+					interrupts = <0 29 1>;
+           				status = "okay";
+        		};
+			
+			uarts_mmi_uart: serial@42c30000 {
+					interrupts = <0 32 1>;
+           				status = "okay";
+        		};
+			
+			uarts_ext_gps_uart: serial@42c40000 {
+           				status = "okay";
+        		};
+			
+			uarts_axi_uart16550_dbg: serial@43c60000 {
+					interrupts = <0 31 4>;
+					status = "okay";
+			};
+
+			uarts_axi_uart16550_ext_gps: serial@43c50000 {
+					interrupts = <0 33 4>;
+					status = "okay";
+			};
+
+			uarts_m2_uart: serial@43c70000 {
+					interrupts = <0 36 4>;
+					status = "okay";
+			};
+			
+			uarts_acnr_data_uart: serial@43c80000 {
+					interrupts = <0 54 4>;
+					status = "okay";
+			
+			};
+
+			spi_interfaces_axi_quad_spi_nvram: axi_quad_spi@41e10000 {
+					is-decoded-cs = <0>;
+					interrupts = <0 52 1>;
+					status = "okay";
+					num-cs = <1>;
+							 spidev@0x0{
+					 			reg = <0>; 
+								status = "okay";
+				 				compatible = "rohm,dh2228fv";
+								spi-max-frequency = <125000000>;
+								   };
+			};
+
+			axi_iic_fmc: i2c@41620000 {
+					interrupts = <0 55 4>;
+			};
+
+			axi_iic_main: i2c@41600000 {
+					interrupts = <0 58 4>;
+			};
+
+			HDMI_axi_hdmi_dma: axi_dmac@43000000 {
+					interrupts = <0 59 4>;
+			};
+			
+     		};
+};
+
+&audio_interface_0 {
+			compatible = "dmem-uio";
+		};
+
+&ethernet_bridge_black_side_fifos_black_to_ps_fifo{
+			
+			compatible = "dmem-uio";
+			};
+
+
+&ethernet_bridge_black_side_fifos_ps_to_black_fifo{
+			
+			compatible = "dmem-uio";
+			};
+
+&ethernet_bridge_encrypted_ethernet_b_0 {
+			
+			compatible = "dmem-uio";
+			};
+
+&ethernet_bridge_tri_mode_ethernet_mac_black  {
+			 
+			compatible = "dmem-uio";
+			};
+
+&ethernet_bridge_tri_mode_ethernet_mac_red {
+			 
+			compatible = "dmem-uio";
+			};
+
+&pro_axi_spi_1 {
+			compatible = "dmem-uio";
+			};
+
+/*&Clock_and_FH_0 {
+			compatible = "dmem-uio";
+			};*/
+
+&FH_Algo_SPI_Slave_0 {
+			compatible = "dmem-uio";
+			};
+
+&trng_interface_0 {
+			compatible = "dmem-uio";
+			};
+
+&spi_interfaces_axi_quad_spi_nvram{
+
+			spidev@0x0{
+ 			reg = <0>; 
+			status = "okay";
+			compatible = "rohm,dh2228fv";
+			spi-max-frequency = <125000000>;}; 
+			};
+
+&spi0{
+	is-decoded-cs = <0>;
+	num-cs = <1>;
+	status = "okay";
+	spidev@0x00 {
+		compatible = "rohm,dh2228fv";
+		status = "okay";
+		spi-max-frequency = <1000000>;
+		reg = <0>;
+		};
+};
+
+&uarts_int_gps_uart{
+		status = "okay";
+		};
+
+&uarts_dbg_uart{
+		status = "okay";
+		};
+
+&uarts_key_gun_uart{
+		status = "okay";
+		};
+
+&uarts_mmi_uart{
+		status = "okay";
+		};
+
+&uarts_ext_gps_uart{
+		status = "okay";
+		};
+
+&uarts_axi_uart16550_dbg{
+		status = "okay";
+		};
+
+&uarts_axi_uart16550_ext_gps{
+		status = "okay";
+		};
+
+&uarts_m2_uart{
+		status = "okay";
+		};
+
+&uarts_acnr_data_uart{
+		status = "okay";
+		};
+
+&uart0 {
+		status = "okay";
+		};
+&uart1 {
+		status = "okay";
+		};
+&i2c0{
+		status = "okay";
+		};
+&i2c1{
+		status = "okay";
+		};
+
+&sdhci0 {
+	
+		status = "okay";
+		};
+
+&sdhci1 {
+	
+		status = "okay";
+		};
+
+&GPIOs_axi_gpio_0 {
+	status = "disabled";
+	};
+
+/*&GPIOs_axi_gpio_0 {
+	label = "pps0";
+	gpios = <&GPIOs_axi_gpio_0 0 0 0>;
+	assert-rising-edge;
+	compatible = "pps-gpio";
+	status = "okay";
+	};*/
+
+&qspi {
+	u-boot,dm-pre-reloc;
+	is-dual = <0>;
+	num-cs = <1>;
+	ps7-qspi@0  {
+		#address-cells = <0x01>;
+		#size-cells = <0x01>;
+		compatible = "n25q128a11";
+		reg = <0x00>;
+		spi-max-frequency = <0x2faf080>;
+		ps7-qspi@0 {
+				#address-cells = <0x01>;
+				#size-cells = <0x01>;
+				compatible = "n25q128a11";
+				reg = <0x00>;
+				spi-max-frequency = <0x2faf080>;
+
+				partition@0 {
+					label = "boot";
+					reg = <0x00 0x500000>;
+				};
+
+				partition@500000 {
+					label = "bootenv";
+					reg = <0x500000 0x20000>;
+				};
+
+				partition@520000 {
+					label = "config";
+					reg = <0x520000 0x20000>;
+				};
+
+				partition@540000 {
+					label = "image";
+					reg = <0x540000 0xa80000>;
+				};
+
+				partition@fc0000 {
+					label = "spare";
+					reg = <0xfc0000 0x00>;
+				};
+			};
+	};
+};

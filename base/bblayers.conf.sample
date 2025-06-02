@@ -1,0 +1,23 @@
+# POKY_BBLAYERS_CONF_VERSION is increased each time build/conf/bblayers.conf
+# changes incompatibly
+POKY_BBLAYERS_CONF_VERSION = "2"
+
+BBPATH = "${TOPDIR}"
+BBFILES ?= ""
+
+BBLAYERS ?= " \
+  /home/shoaib/NRTC/VUHFSDR/sources/poky/meta \
+  /home/shoaib/NRTC/VUHFSDR/sources/poky/meta-poky \
+  /home/shoaib/NRTC/VUHFSDR/sources/meta-openembedded/meta-oe \
+  /home/shoaib/NRTC/VUHFSDR/sources/meta-openembedded/meta-python \
+  /home/shoaib/NRTC/VUHFSDR/sources/meta-openembedded/meta-networking \
+  /home/shoaib/NRTC/VUHFSDR/sources/meta-openembedded/meta-filesystems \
+  /home/shoaib/NRTC/VUHFSDR/sources/meta-xilinx/meta-microblaze \
+  /home/shoaib/NRTC/VUHFSDR/sources/meta-xilinx/meta-xilinx-core \
+  /home/shoaib/NRTC/VUHFSDR/sources/meta-xilinx/meta-xilinx-bsp \
+  /home/shoaib/NRTC/VUHFSDR/sources/meta-xilinx/meta-xilinx-vendor \
+  /home/shoaib/NRTC/VUHFSDR/sources/meta-xilinx/meta-xilinx-standalone \
+  /home/shoaib/NRTC/VUHFSDR/sources/meta-xilinx-tools \
+  /home/shoaib/NRTC/VUHFSDR/sources/meta-custom-zynq-7020 \
+  /home/shoaib/NRTC/VUHFSDR/sources/meta-security \
+  "

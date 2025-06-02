@@ -1,0 +1,14 @@
+[Unit]
+Description=nftables firewall
+Before=network-pre.target
+Wants=network-pre.target
+After=local-fs.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/nft -f /etc/nftables.conf
+ExecReload=/usr/sbin/nft -f /etc/nftables.conf
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

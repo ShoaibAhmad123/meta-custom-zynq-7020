@@ -1,0 +1,10 @@
+[Unit]
+Description=Start Script Service
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/start.sh
+Type=simple
+
+[Install]
+WantedBy=multi-user.target
